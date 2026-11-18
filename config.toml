@@ -1,0 +1,598 @@
+[source]
+base_url = "https://raw.githubusercontent.com/PokeAPI/api-data"
+commit = "9c965567b7a2a717fb8a391c4ddbc8e168f41124"
+api_prefix = "data/api/v2"
+document_name = "index.json"
+timeout_seconds = 30.0
+worker_count = 16
+generation_index = 3
+versions = ["firered", "leafgreen"]
+pokedex_limit = 151
+sprite_version = "firered-leafgreen"
+sprite_repository = "PokeAPI/sprites"
+sprite_commit = "c0542f7c51215d9672439012838c99f520596cbd"
+
+[pret]
+base_url = "https://raw.githubusercontent.com/pret/pokefirered"
+commit = "ce6406d8c2eaf46d543c8a2606de0c3cb1951982"
+species_file = "src/data/pokemon/species_info.h"
+level_up_file = "src/data/pokemon/level_up_learnsets.h"
+level_up_pointer_file = "src/data/pokemon/level_up_learnset_pointers.h"
+tmhm_file = "src/data/pokemon/tmhm_learnsets.h"
+tutor_file = "src/data/pokemon/tutor_learnsets.h"
+moves_file = "src/data/battle_moves.h"
+parties_file = "src/data/trainer_parties.h"
+
+[campaign]
+player_iv = 15
+player_ev = 0
+trainer_iv_scale = 255
+maximum_iv = 31
+default_move_count = 4
+damage_roll_mean = 0.925
+stab_multiplier = 1.5
+intimidate_multiplier = 0.6667
+league_player_level = 54
+turn_weight = 0.5
+sleep_free_turns = 2.0
+paralysis_speed_factor = 0.25
+paralysis_action_rate = 0.75
+maximum_setup_uses = 2
+
+[population]
+excluded_species = ["mew", "mewtwo", "ditto"]
+
+[calibration]
+battle_features = ["battle_quality", "total_contribution"]
+ease_features = ["battles_available_share", "final_form_level", "experience_to_level_50", "acquisition_effort", "requires_trade"]
+negative_features = ["final_form_level", "experience_to_level_50", "acquisition_effort", "requires_trade"]
+regularization = 1.0
+target = "smogon_tier_score"
+
+[axes]
+x_feature = "cross_validated_score"
+x_label = "Estimated Strength"
+y_feature = "contribution_earliness"
+y_label = "Contribution Timing"
+quadrant_labels = ["Avoid", "Late Bloomers", "Early Fillers", "Team Pillars"]
+
+[dataset]
+lines_name = "kanto_lines.parquet"
+battles_name = "major_battles.parquet"
+
+[report]
+title = "Which Pokémon Carry a FireRed And LeafGreen Run"
+subtitle = "Strength And Contribution Timing Across the Major Battles"
+figure_name = "FRLG_Viability.png"
+results_name = "viability_estimates.parquet"
+figure_dpi = 400
+sprite_zoom = 0.64
+figure_width = 11.0
+figure_height = 9.0
+
+[fonts]
+base_url = "https://raw.githubusercontent.com/IBM/plex"
+commit = "bc6a7e4b37634eb79785d59781893db63ee3edcb"
+family = "IBM Plex Sans"
+files = ["packages/plex-sans/fonts/complete/ttf/IBMPlexSans-Regular.ttf", "packages/plex-sans/fonts/complete/ttf/IBMPlexSans-SemiBold.ttf"]
+
+[style]
+surface = "#ffffff"
+text_primary = "#1a1a1a"
+text_secondary = "#5a5a5a"
+grid = "#d4d4d4"
+quadrant_line = "#9a9a9a"
+quadrant_colors = ["#e34948", "#2a78d6", "#eda100", "#1baf7a"]
+quadrant_alpha = 0.08
+quadrant_label_colors = ["#b02b2a", "#1a56a0", "#a66d00", "#0f7a52"]
+
+[study]
+seed = 42
+
+[strategies]
+sleep_moves = ["hypnosis", "lovely-kiss", "sleep-powder", "sing", "spore", "grass-whistle"]
+paralysis_moves = ["thunder-wave", "stun-spore", "glare"]
+type_checked_status_moves = ["thunder-wave"]
+sleep_blocking_abilities = ["ABILITY_INSOMNIA", "ABILITY_VITAL_SPIRIT"]
+paralysis_blocking_abilities = ["ABILITY_LIMBER"]
+
+[strategies.setup_moves]
+"swords-dance" = { attack = 2 }
+"bulk-up" = { attack = 1, defense = 1 }
+"calm-mind" = { special_attack = 1, special_defense = 1 }
+"growth" = { special_attack = 1 }
+"tail-glow" = { special_attack = 2 }
+"howl" = { attack = 1 }
+"meditate" = { attack = 1 }
+"sharpen" = { attack = 1 }
+"curse" = { attack = 1, defense = 1, speed = -1 }
+"dragon-dance" = { attack = 1, speed = 1 }
+"agility" = { speed = 2 }
+"amnesia" = { special_defense = 2 }
+"barrier" = { defense = 2 }
+"acid-armor" = { defense = 2 }
+"iron-defense" = { defense = 2 }
+"harden" = { defense = 1 }
+"withdraw" = { defense = 1 }
+"defense-curl" = { defense = 1 }
+"cosmic-power" = { defense = 1, special_defense = 1 }
+
+[acquisition]
+chance_thresholds = [20, 5]
+safari_prefix = "kanto-safari-zone"
+safari_penalty = 1
+sevii_badges = 6
+sevii_penalty = 1
+npc_trade_effort = 1
+coin_thresholds = [1000, 3000]
+prize_corner_location = "celadon-city-prize-corner"
+maximum_effort = 3
+
+[acquisition.prize_corner_coins]
+abra = 150
+clefairy = 625
+scyther = 5500
+pinsir = 2500
+dratini = 3700
+porygon = 8250
+
+[location_badges]
+"pallet-town-area" = 0
+"viridian-city-area" = 0
+"kanto-route-1-area" = 0
+"kanto-route-2-south-towards-viridian-city" = 0
+"kanto-route-2-north-towards-pewter-city" = 2
+"kanto-route-22-area" = 0
+"viridian-forest-area" = 0
+"kanto-route-3-area" = 1
+"kanto-route-3-pokemon-center" = 1
+"mt-moon-1f" = 1
+"mt-moon-b1f" = 1
+"mt-moon-b2f" = 1
+"kanto-route-4-area" = 1
+"kanto-route-4-pokemon-center" = 1
+"cerulean-city-area" = 1
+"kanto-route-24-area" = 1
+"kanto-route-25-area" = 1
+"kanto-route-5-area" = 2
+"kanto-route-6-area" = 2
+"vermilion-city-area" = 2
+"ss-anne-area" = 2
+"kanto-route-11-area" = 2
+"digletts-cave-area" = 2
+"kanto-pokecenter-area" = 2
+"kanto-route-9-area" = 3
+"kanto-route-10-area" = 3
+"rock-tunnel-1f" = 3
+"rock-tunnel-b1f" = 3
+"kanto-route-8-area" = 3
+"kanto-route-7-area" = 3
+"kanto-underground-path-area" = 3
+"celadon-city-area" = 3
+"celadon-city-celadon-mansion" = 3
+"celadon-city-prize-corner" = 3
+"pokemon-tower-3f" = 4
+"pokemon-tower-4f" = 4
+"pokemon-tower-5f" = 4
+"pokemon-tower-6f" = 4
+"pokemon-tower-7f" = 4
+"kanto-route-12-area" = 4
+"kanto-route-13-area" = 4
+"kanto-route-14-area" = 4
+"kanto-route-15-area" = 4
+"kanto-route-16-area" = 4
+"kanto-route-17-area" = 4
+"kanto-route-18-area" = 4
+"fuchsia-city-area" = 4
+"kanto-safari-zone-middle" = 4
+"kanto-safari-zone-area-1-east" = 4
+"kanto-safari-zone-area-2-north" = 4
+"kanto-safari-zone-area-3-west" = 4
+"saffron-city-fighting-dojo" = 4
+"saffron-city-silph-co-7f" = 4
+"kanto-power-plant-area" = 5
+"kanto-sea-route-19-area" = 5
+"kanto-sea-route-20-area" = 5
+"kanto-sea-route-21-area" = 5
+"seafoam-islands-1f" = 5
+"seafoam-islands-b1f" = 5
+"seafoam-islands-b2f" = 5
+"seafoam-islands-b3f" = 5
+"seafoam-islands-b4f" = 5
+"cinnabar-island-area" = 5
+"cinnabar-island-cinnabar-lab" = 5
+"pokemon-mansion-1f" = 5
+"pokemon-mansion-2f" = 5
+"pokemon-mansion-3f" = 5
+"pokemon-mansion-b1f" = 5
+"one-island-area" = 6
+"treasure-beach-area" = 6
+"kindle-road-area" = 6
+"mt-ember-area" = 6
+"mt-ember-1f-cave-behind-team-rocket" = 6
+"mt-ember-b1f" = 6
+"mt-ember-b2f" = 6
+"mt-ember-cave" = 6
+"mt-ember-inside" = 6
+"mt-ember-summit" = 6
+"cape-brink-area" = 6
+"bond-bridge-area" = 6
+"berry-forest-area" = 6
+"kanto-route-23-area" = 8
+"kanto-victory-road-2-1f" = 8
+"kanto-victory-road-2-2f" = 8
+"kanto-victory-road-2-3f" = 8
+"cerulean-cave-1f" = 9
+"cerulean-cave-2f" = 9
+"cerulean-cave-b1f" = 9
+"four-island-area" = 9
+"five-island-area" = 9
+"five-isle-meadow-area" = 9
+"memorial-pillar-area" = 9
+"water-labyrinth-area" = 9
+"resort-gorgeous-area" = 9
+"lost-cave-item-rooms" = 9
+"lost-cave-room-1" = 9
+"lost-cave-room-2" = 9
+"lost-cave-room-3" = 9
+"lost-cave-room-4" = 9
+"lost-cave-room-5" = 9
+"lost-cave-room-6" = 9
+"lost-cave-room-7" = 9
+"lost-cave-room-8" = 9
+"lost-cave-room-9" = 9
+"lost-cave-room-10" = 9
+"icefall-cave-entrance" = 9
+"icefall-cave-1f" = 9
+"icefall-cave-b1f" = 9
+"icefall-cave-waterfall" = 9
+"water-path-area" = 9
+"ruin-valley-area" = 9
+"sevault-canyon-area" = 9
+"canyon-entrance-area" = 9
+"green-path-area" = 9
+"tanoby-ruins-area" = 9
+"trainer-tower-area" = 9
+"outcast-island-area" = 9
+"pattern-bush-area" = 9
+"kanto-altering-cave-a" = 9
+
+[method_badges]
+"old-rod" = 2
+"good-rod" = 4
+"super-rod" = 4
+"surf" = 5
+"rock-smash" = 6
+
+[item_badges]
+"moon-stone" = 1
+"fire-stone" = 3
+"water-stone" = 3
+"thunder-stone" = 3
+"leaf-stone" = 3
+
+[smogon_tiers]
+venusaur = "B"
+charizard = "B"
+blastoise = "A"
+butterfree = "C"
+beedrill = "D"
+pidgeot = "D"
+raticate = "C"
+fearow = "B"
+arbok = "D"
+raichu = "C"
+sandslash = "D"
+nidoqueen = "B"
+nidoking = "A"
+clefable = "A"
+ninetales = "C"
+wigglytuff = "D"
+golbat = "D"
+vileplume = "C"
+parasect = "D"
+venomoth = "C"
+dugtrio = "D"
+persian = "C"
+golduck = "B"
+primeape = "A"
+arcanine = "B"
+poliwrath = "C"
+alakazam = "S"
+machamp = "C"
+victreebel = "C"
+tentacruel = "B"
+golem = "C"
+rapidash = "D"
+slowbro = "C"
+magneton = "C"
+farfetchd = "C"
+dodrio = "B"
+dewgong = "C"
+muk = "D"
+cloyster = "C"
+gengar = "A"
+onix = "E"
+hypno = "C"
+kingler = "C"
+electrode = "C"
+exeggutor = "B"
+marowak = "D"
+hitmonlee = "C"
+hitmonchan = "C"
+lickitung = "E"
+weezing = "D"
+rhydon = "D"
+chansey = "E"
+tangela = "D"
+kangaskhan = "D"
+seadra = "C"
+seaking = "C"
+starmie = "A"
+mr-mime = "S"
+scyther = "C"
+jynx = "S"
+electabuzz = "C"
+magmar = "D"
+pinsir = "C"
+tauros = "D"
+gyarados = "B"
+lapras = "B"
+ditto = "E"
+vaporeon = "A"
+jolteon = "C"
+flareon = "C"
+porygon = "E"
+omastar = "D"
+kabutops = "D"
+aerodactyl = "D"
+snorlax = "A"
+articuno = "B"
+zapdos = "B"
+moltres = "D"
+dragonite = "D"
+
+[tier_scores]
+S = 5
+A = 4
+B = 3
+C = 2
+D = 1
+E = 0
+
+[[bosses]]
+name = "brock"
+label = "Brock"
+badges_before = 0
+parties = ["sParty_LeaderBrock"]
+
+[[bosses]]
+name = "misty"
+label = "Misty"
+badges_before = 1
+parties = ["sParty_LeaderMisty"]
+
+[[bosses]]
+name = "lt_surge"
+label = "Lt. Surge"
+badges_before = 2
+parties = ["sParty_LeaderLtSurge"]
+
+[[bosses]]
+name = "erika"
+label = "Erika"
+badges_before = 3
+parties = ["sParty_LeaderErika"]
+
+[[bosses]]
+name = "koga"
+label = "Koga"
+badges_before = 4
+parties = ["sParty_LeaderKoga"]
+
+[[bosses]]
+name = "sabrina"
+label = "Sabrina"
+badges_before = 5
+parties = ["sParty_LeaderSabrina"]
+
+[[bosses]]
+name = "blaine"
+label = "Blaine"
+badges_before = 6
+parties = ["sParty_LeaderBlaine"]
+
+[[bosses]]
+name = "giovanni"
+label = "Giovanni"
+badges_before = 7
+parties = ["sParty_LeaderGiovanni"]
+
+[[bosses]]
+name = "lorelei"
+league = true
+label = "Lorelei"
+badges_before = 8
+parties = ["sParty_EliteFourLorelei"]
+
+[[bosses]]
+name = "bruno"
+league = true
+label = "Bruno"
+badges_before = 8
+parties = ["sParty_EliteFourBruno"]
+
+[[bosses]]
+name = "agatha"
+league = true
+label = "Agatha"
+badges_before = 8
+parties = ["sParty_EliteFourAgatha"]
+
+[[bosses]]
+name = "lance"
+league = true
+label = "Lance"
+badges_before = 8
+parties = ["sParty_EliteFourLance"]
+
+[[bosses]]
+name = "champion"
+league = true
+label = "Campione"
+badges_before = 8
+parties = ["sParty_ChampionFirstSquirtle", "sParty_ChampionFirstBulbasaur", "sParty_ChampionFirstCharmander"]
+
+[[bosses]]
+name = "rival_route22_early"
+label = "Rivale (Percorso 22)"
+badges_before = 0
+parties = ["sParty_RivalRoute22EarlySquirtle", "sParty_RivalRoute22EarlyBulbasaur", "sParty_RivalRoute22EarlyCharmander"]
+
+[[bosses]]
+name = "rival_cerulean"
+label = "Rivale (Celestopoli)"
+badges_before = 1
+parties = ["sParty_RivalCeruleanSquirtle", "sParty_RivalCeruleanBulbasaur", "sParty_RivalCeruleanCharmander"]
+
+[[bosses]]
+name = "rival_ss_anne"
+label = "Rivale (M/N Anna)"
+badges_before = 2
+parties = ["sParty_RivalSsAnneSquirtle", "sParty_RivalSsAnneBulbasaur", "sParty_RivalSsAnneCharmander"]
+
+[[bosses]]
+name = "rival_pokemon_tower"
+label = "Rivale (Torre Pokémon)"
+badges_before = 3
+parties = ["sParty_RivalPokemonTowerSquirtle", "sParty_RivalPokemonTowerBulbasaur", "sParty_RivalPokemonTowerCharmander"]
+
+[[bosses]]
+name = "rival_silph"
+label = "Rivale (Silph S.p.A.)"
+badges_before = 5
+parties = ["sParty_RivalSilphSquirtle", "sParty_RivalSilphBulbasaur", "sParty_RivalSilphCharmander"]
+
+[[bosses]]
+name = "rival_route22_late"
+label = "Rivale (Percorso 22, finale)"
+badges_before = 8
+parties = ["sParty_RivalRoute22LateSquirtle", "sParty_RivalRoute22LateBulbasaur", "sParty_RivalRoute22LateCharmander"]
+
+[tm_badges]
+"focus-punch" = 4
+"dragon-claw" = 8
+"water-pulse" = 2
+"calm-mind" = 6
+"roar" = 1
+"toxic" = 5
+"hail" = 8
+"bulk-up" = 4
+"bullet-seed" = 1
+"sunny-day" = 4
+"taunt" = 3
+"ice-beam" = 5
+"blizzard" = 5
+"hyper-beam" = 3
+"light-screen" = 3
+"protect" = 5
+"rain-dance" = 4
+"giga-drain" = 4
+"safeguard" = 3
+"frustration" = 3
+"solar-beam" = 5
+"iron-tail" = 5
+"thunderbolt" = 5
+"thunder" = 5
+"earthquake" = 8
+"return" = 4
+"dig" = 1
+"psychic" = 4
+"shadow-ball" = 5
+"brick-break" = 2
+"double-team" = 4
+"reflect" = 3
+"shock-wave" = 3
+"flamethrower" = 5
+"sludge-bomb" = 3
+"sandstorm" = 8
+"fire-blast" = 7
+"rock-tomb" = 1
+"aerial-ace" = 2
+"torment" = 4
+"facade" = 6
+"secret-power" = 1
+"rest" = 2
+"attract" = 1
+"thief" = 1
+"steel-wing" = 4
+"skill-swap" = 5
+"snatch" = 3
+"overheat" = 8
+"cut" = 2
+"fly" = 4
+"surf" = 4
+"strength" = 4
+"flash" = 1
+"rock-smash" = 6
+"waterfall" = 9
+
+[tutor_badges]
+"mega-punch" = 1
+"mega-kick" = 1
+"seismic-toss" = 2
+"dream-eater" = 0
+"counter" = 3
+"soft-boiled" = 3
+"rock-slide" = 3
+"mimic" = 4
+"thunder-wave" = 4
+"substitute" = 4
+"metronome" = 5
+"explosion" = 6
+"double-edge" = 8
+"body-slam" = 9
+"swords-dance" = 9
+
+[move_effects]
+excluded = [
+    "EFFECT_EXPLOSION", "EFFECT_DREAM_EATER", "EFFECT_FOCUS_PUNCH", "EFFECT_SNORE", "EFFECT_FAKE_OUT",
+    "EFFECT_FUTURE_SIGHT", "EFFECT_SPIT_UP", "EFFECT_OHKO", "EFFECT_FRUSTRATION", "EFFECT_HIDDEN_POWER",
+    "EFFECT_PRESENT", "EFFECT_FLAIL", "EFFECT_SUPER_FANG", "EFFECT_BIDE", "EFFECT_COUNTER", "EFFECT_MIRROR_COAT",
+    "EFFECT_PSYWAVE", "EFFECT_ENDEAVOR", "EFFECT_BEAT_UP", "EFFECT_REVENGE", "EFFECT_SMELLINGSALT",
+]
+level_damage = ["EFFECT_LEVEL_DAMAGE"]
+
+[move_effects.fixed_damage]
+EFFECT_SONICBOOM = 20
+EFFECT_DRAGON_RAGE = 40
+
+[move_effects.fixed_power]
+EFFECT_RETURN = 102
+EFFECT_MAGNITUDE = 71
+EFFECT_LOW_KICK = 60
+
+[move_effects.power_multipliers]
+EFFECT_MULTI_HIT = 3.0
+EFFECT_DOUBLE_HIT = 2.0
+EFFECT_TWINEEDLE = 2.0
+EFFECT_TRIPLE_KICK = 6.0
+EFFECT_RECHARGE = 0.5
+EFFECT_SEMI_INVULNERABLE = 0.5
+EFFECT_SOLAR_BEAM = 0.5
+EFFECT_RAZOR_WIND = 0.5
+EFFECT_SKY_ATTACK = 0.5
+EFFECT_SKULL_BASH = 0.5
+
+[abilities]
+immunities = { ABILITY_LEVITATE = "ground", ABILITY_FLASH_FIRE = "fire", ABILITY_VOLT_ABSORB = "electric", ABILITY_WATER_ABSORB = "water" }
+halved_incoming = { ABILITY_THICK_FAT = ["fire", "ice"] }
+attack_drop_on_entry = ["ABILITY_INTIMIDATE"]
+
+[growth_experience_level_50]
+GROWTH_FAST = 100000
+GROWTH_MEDIUM_FAST = 125000
+GROWTH_MEDIUM_SLOW = 117360
+GROWTH_SLOW = 156250
+GROWTH_ERRATIC = 125000
+GROWTH_FLUCTUATING = 142500

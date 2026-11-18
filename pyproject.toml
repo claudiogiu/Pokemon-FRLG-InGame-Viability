@@ -1,0 +1,32 @@
+[project]
+name = "FRLG-InGame-Viability-Simulation"
+version = "0.1.0"
+description = "A battle simulation framework for estimating the in-game viability of Kanto Pokémon in FireRed and LeafGreen, calibrated on the Smogon tiers."
+requires-python = ">=3.12"
+dependencies = [
+    "matplotlib==3.10.7",
+    "numpy==2.3.4",
+    "pandas==2.3.3",
+    "pillow==12.0.0",
+    "pyarrow==22.0.0",
+    "pydantic==2.12.4",
+    "requests==2.32.5",
+    "scikit-learn==1.7.2",
+    "scipy==1.16.3",
+]
+
+[dependency-groups]
+dev = [
+    "ruff==0.14.5",
+]
+
+[tool.ruff]
+target-version = "py312"
+line-length = 200
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "LOG", "BLE"]
+ignore = ["UP006", "UP007", "UP035", "UP045", "LOG014", "BLE001"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["src"]
