@@ -1,4 +1,4 @@
-# Pokémon FRLG In-Game Viability
+# Pokémon FireRed and LeafGreen In-Game Viability
 
 ## Introduction  
 
