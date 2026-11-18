@@ -1,7 +1,7 @@
 [project]
 name = "FRLG-InGame-Viability-Simulation"
 version = "0.1.0"
-description = "A battle simulation framework for estimating the in-game viability of Kanto Pokémon in FireRed and LeafGreen, calibrated on the Smogon tiers."
+description = "A simulation-based estimator of the in-game viability of Kanto Pokémon in FireRed and LeafGreen, calibrated on the Smogon tiers."
 requires-python = ">=3.12"
 dependencies = [
     "matplotlib==3.10.7",
